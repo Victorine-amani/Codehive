@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURSES_LIST</title>
+    <style>
+
+
+
+body {
+  margin: 0;
+ 
+  background: #f0ecf3;
+  
+  align-items: center;
+  place-items: center;
+  font-family: poppins;
+}
+.container tr:nth-child(odd) {
+	  background-color: whitesmoke;
+
+}
+
+.calendar tr:nth-child(even) {
+	  background-color: #fd99e8;
+   
+}
+
+.container {
+	  
+  width: 1000px;
+  margin: auto;
+  position: relative;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #f0ecf3;
+  box-shadow: 14px 14px 20px #cfcbd1, -14px -14px 20px white;
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+
+	color: black;
+}
+
+th {
+	text-align: left;
+}
+
+
+
+
+tr:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	
+td:hover:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+        position: relative;
+			}
+    </style>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+   <h1 style="text-align: center; font-weight: 100;color: black;">COURSES LIST</h1>
+        <table class="container">
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Trainer</th>
+            </tr>
+        {%for course in courses%}
+        <tr>
+            <td>{{course.name}}</td>
+            <td>{{course.code}}</td>
+            <td>{{course.description}}</td>
+            <td>{{course.trainer}}</td>  
+        </tr>
+        {%endfor%}
+
+</table>
+{%endblock content%}
+</body>
+</html>

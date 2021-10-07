@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAINERS_LIST</title>
+    <style>
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+body {
+  margin: 0;
+ 
+  background: #f0ecf3;
+  
+  align-items: center;
+  place-items: center;
+  font-family: poppins;
+}
+
+
+.container {
+	  
+  width: 1000px;
+  margin: auto;
+  position: relative;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #f0ecf3;
+  box-shadow: 14px 14px 20px #cfcbd1, -14px -14px 20px white;
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+
+	color: black;
+}
+
+th {
+	text-align: left;
+}
+
+
+
+
+tr:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	
+td:hover:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+        position: relative;
+			}
+
+    </style>
+</head>
+<body>
+  {%extends 'base.html'%}
+  {%block content%}
+    <h1 style="text-align: center; font-weight:normal;color: black;">TRAINERS LIST</h1>
+    <table class="container">
+        <tr>
+            <th>Profile</th>
+            <th>First_name</th>
+            <th>Last_name</th>
+            <th>Course</th>
+            <th>Phone Number</th>
+            <th>Salary</th>
+            <th>Resume</th>
+            <th>Edit</th>
+            <th>Delete</th>
+    
+        </tr>
+    {%for trainer in trainers%}
+    <tr>
+        <td><img src="{{ trainer.profile_picture.url }}" class="img-responsive" style="width: 100%; height:100px;float: left; margin-right: 10px;" /></td>
+        <td>{{trainer.first_name}}</td>
+        <td>{{trainer.last_name}}</td>
+        <td>{{trainer.course}}</td>
+        <td>{{trainer.phone_number}}</td>
+        <td>{{trainer.salary}}</td>
+        <td><a href="{{ trainer.resume.url }}"style="color: #ffffff; border-radius: 10px;background-color: #9263B1;padding: 10px;text-decoration: none;">View</a></td>
+        <td><a href="{%url 'edit_trainer' id=trainer.id%}" style="color: #ffffff; border-radius: 10px;background-color: #9263B1;padding: 10px;text-decoration: none;">Edit</a></td>
+        <td><a href="{%url 'delete_trainer' id=trainer.id%}" style="color: #ffffff; border-radius: 10px;background-color: #9263B1;padding: 10px;text-decoration: none;">Delete</a></td>
+       
+        
+    </tr>
+    {%endfor%}
+</table>
+{%endblock content%}
+</body>
+</html>

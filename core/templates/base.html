@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+    text-align: left;
+    padding-bottom: 30px;
+    text-align: center;
+    padding-top: 20px;
+
+    
+}
+#all{
+    display: flex;
+  
+}
+.dropbtn {
+  
+    
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{%url 'home' %}" style=" color: #73387C; padding-left: 30px;">HOME</a>
+        <div class="dropdown">
+            <a class="dropbtn" href="#" style="color: #73387C; padding-left: 30px;">STUDENTS</a>
+            <div class="dropdown-content">
+            <a href="{%url 'register_student' %}" style="font-size: 15px;">Register</a>
+            <a href="{%url 'student_list' %}" style="font-size: 15px;">All Students</a>
+            </div>
+          </div>
+          <div class="dropdown">
+         <a class="dropbtn" href="#" style="color: #73387C; padding-left: 30px;">TRAINERS</a>
+            <div class="dropdown-content">
+            <a href="{%url 'register_trainers' %}"style="font-size: 15px;">Apply</a>
+            <a href="{%url 'trainers_list' %}" style="font-size: 15px;">All Trainers</a>
+            </div>
+          </div>
+      
+          <div class="dropdown">
+        <a class="dropbtn" href="#" style="color: #73387C; padding-left: 30px;">COURSES</a>
+         <div class="dropdown-content">
+        <a href="{%url 'courses' %}"style="font-size: 15px;">Create</a>
+        <a href="{%url 'course_list' %}"style="font-size: 15px;" >Available courses</a>
+             </div>
+             </div>
+             <div class="dropdown">
+        <a class="dropbtn" href="#" style="color: #73387C; padding-left: 30px;">EVENTS</a>
+             <div class="dropdown-content">
+            <a href="{%url 'events:event_form' %}"style="font-size: 15px;">Schedule event</a>
+            <a href="{%url 'events:calendar' %}" style="font-size: 15px;">Scheduled events</a>
+                 </div>
+                 </div>
+  </nav>  
+  {%block content%}
+  {%endblock content%}
+</body>
+</html>
